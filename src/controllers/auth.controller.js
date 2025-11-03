@@ -149,56 +149,7 @@ const forgotPasswordController = async(req,res)=>{
             })
     }
 }
-// const updatePasswordController = async (req, res)=>{
-//     try {
-//         let user_id = req.params.id
-//         const {password, confirmPassword} = req.body
 
-//         console.log("password from ejs: ",password)
-//         console.log("confirm password from ejs: ",confirmPassword)
-//         console.log("user_id: ", user_id);
-        
-//         if(!user_id){
-//             return res.status(404).json({message: "user_id not found"})
-//         }
-
-//         if(!password || !confirmPassword){
-//             return res.status(400).json({message: "both password and change password are required fields"})
-//         }
-
-//         if(password !== confirmPassword){
-//             return res.status(400).json({message: "passwords do not match"})
-//         }
-
-//         const hashedPassword = await bcrypt.hash(password, 10)
-
-//         const updateUser = await userModel.findByIdAndUpdate(
-//             user_id,
-//             {password: hashedPassword},
-//             {new: true}
-//         )
-
-//         if(!updateUser){
-//             return res.status(404).json({message: "User not found"})
-//         }
-
-//         return res.status(200).json({message : "password updated successfully"})
-
-//     } catch (error) {
-//          console.error("Error in updatePasswordController:", error);
-//         return res.status(500).json({ message: "Internal server error", error });
-//     }
-// }
-
-// const resetPasswordController = async (req, res)=>{
-//     let token = req.params.token
-
-//     if(!token){return res.status(404).json({message: "token not found"})}
-
-//     let decode = jwt.verify(token, process.env.JWT_SECRET)
-//     return res.render('index.ejs', {user_id: decode.id})
-
-// }
 
 
 module.exports={
@@ -206,6 +157,5 @@ module.exports={
     loginController,
     logoutController,
     forgotPasswordController,
-    // updatePasswordController,
-    // resetPasswordController,
+    
 }
